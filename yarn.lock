@@ -21,7 +21,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-types@npm:^16.0.2":
+"@contentful/rich-text-types@npm:^16.0.2, @contentful/rich-text-types@npm:^16.2.0":
   version: 16.2.0
   resolution: "@contentful/rich-text-types@npm:16.2.0"
   checksum: ec9390201e7e7c1419b61efee12845169665b336fe866132515f61ed7ab6753a997d1336b13cb2962eb48db01deef4a5a035e929344eec41f1b58227d78ecff9
@@ -3214,6 +3214,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "personal_website@workspace:."
   dependencies:
+    "@contentful/rich-text-types": ^16.2.0
     "@types/node": 20.3.1
     "@types/react": 18.2.12
     "@types/react-dom": 18.2.5
