@@ -6,7 +6,7 @@ export default function RichTextListItem({
 }: {
   content: TopLevelBlock;
 }) {
-  return content.content.map((cont, idx) => {
+  return content.content.map((cont) => {
     switch (cont.nodeType) {
       case BLOCKS.LIST_ITEM: {
         return (
