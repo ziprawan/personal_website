@@ -1,6 +1,7 @@
 import { BLOCKS, TopLevelBlock } from "@contentful/rich-text-types";
 import Blocks from "./blocks";
 import RichTextListItem from "./list-item";
+import RichTextTable from "./table";
 
 export default function contentMapper(content: TopLevelBlock) {
   switch (content.nodeType) {
@@ -68,11 +69,13 @@ export default function contentMapper(content: TopLevelBlock) {
     }
     case BLOCKS.QUOTE: {
       return (
-        <blockquote className="b border-l-4 border-slate-950 pl-4">
+        <blockquote className="b border-l-4 border-gray-600 text-gray-600 pl-4">
           <Blocks content={content} />
         </blockquote>
       );
     }
+    case BLOCKS.TABLE:
+      return <RichTextTable contents={content} />;
     default:
       console.warn(`Unknown nodeType: ${content.nodeType} at contentMapper`);
       return (
