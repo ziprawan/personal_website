@@ -3,6 +3,7 @@ import ContentfulImage from "../contentful/image";
 import { AssetFile } from "contentful";
 import ContentfulDate from "../contentful/date";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 
 type postCardtype = {
   field: TypePost["fields"];
@@ -25,8 +26,8 @@ export default function PostCard({ field }: postCardtype) {
         <div className="px-4 py-2 w-2/3 xl:w-4/5">
           <div className="font-bold text-2xl">{field.title}</div>
           <ContentfulDate date={field.date} />
-          <div className="text-sm text-slate-500 text-justify">
-            {field.excerpt}
+          <div className="text-sm text-slate-500 text-justify whitespace-pre-line">
+            <ReactMarkdown>{field.excerpt}</ReactMarkdown>
           </div>
         </div>
       </div>
