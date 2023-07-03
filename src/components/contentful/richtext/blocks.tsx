@@ -2,15 +2,24 @@ import { BLOCKS, INLINES, TopLevelBlock } from "@contentful/rich-text-types";
 import markers from "./marks";
 import Link from "next/link";
 import { TypePost } from "@/types/content-type/TypePost";
+import ContentfulDate from "../date";
 
 export default function Blocks({ content }: { content: TopLevelBlock }) {
+  let entryIsFirst = true;
+  const nodeTypes = content.content.map((c) => c.nodeType);
   return (
-    <div className="whitespace-pre-wrap">
+    <div
+      className={`whitespace-pre-wrap ${
+        nodeTypes.includes(INLINES.EMBEDDED_ENTRY) ? "flex" : ""
+      }`}
+    >
       {content.content.map((c, idx) => {
         switch (c.nodeType) {
           case "text":
+            entryIsFirst = c.value === "";
             return markers(c, idx);
           case BLOCKS.PARAGRAPH:
+            entryIsFirst = false;
             return c.content.map((paragraph, p_idx) => {
               if (paragraph.nodeType === "text")
                 return (
@@ -27,6 +36,7 @@ export default function Blocks({ content }: { content: TopLevelBlock }) {
                 );
             });
           case INLINES.HYPERLINK:
+            entryIsFirst = false;
             return (
               <a
                 key={idx}
@@ -48,6 +58,7 @@ export default function Blocks({ content }: { content: TopLevelBlock }) {
               </a>
             );
           case INLINES.ENTRY_HYPERLINK:
+            entryIsFirst = false;
             return (
               <Link
                 key={idx}
@@ -67,6 +78,21 @@ export default function Blocks({ content }: { content: TopLevelBlock }) {
                 })}
               </Link>
             );
+          case INLINES.EMBEDDED_ENTRY: {
+            const field = c.data.target.fields;
+            return (
+              <Link href={`/posts/${field.slug}`} className="">
+                <div
+                  className={`flex ${
+                    entryIsFirst ? "" : "ml-2"
+                  } bg-gray-100 font-sans outline outline-1 rounded-md w-fit px-2`}
+                >
+                  <div className="font-bold text-sm">{field.title}</div>
+                  <ContentfulDate className="pl-1" date={field.date} />
+                </div>
+              </Link>
+            );
+          }
           default:
             console.warn(`Unknown nodeType: ${c.nodeType} at Blocks`);
             return (
