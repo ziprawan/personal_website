@@ -2,6 +2,7 @@ import { BLOCKS, TopLevelBlock } from "@contentful/rich-text-types";
 import Blocks from "./blocks";
 import RichTextListItem from "./list-item";
 import RichTextTable from "./table";
+import { RichTextEmbedAsset } from "./embed";
 
 export default function contentMapper(content: TopLevelBlock) {
   switch (content.nodeType) {
@@ -76,6 +77,9 @@ export default function contentMapper(content: TopLevelBlock) {
     }
     case BLOCKS.TABLE:
       return <RichTextTable contents={content} />;
+    case BLOCKS.EMBEDDED_ASSET: {
+      return <RichTextEmbedAsset contents={content} />
+    }
     default:
       console.warn(`Unknown nodeType: ${content.nodeType} at contentMapper`);
       return (
