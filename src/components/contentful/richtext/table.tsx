@@ -52,7 +52,7 @@ export default function RichTextTable({
               default: {
                 console.warn(`Unknown nodeType: ${content.nodeType} at table`);
                 return (
-                  <div className="italic text-gray-500">
+                  <div key={idx} className="italic text-gray-500">
                     &#123;err: Unknwon nodeType: {content.nodeType} at
                     table&#125;
                   </div>

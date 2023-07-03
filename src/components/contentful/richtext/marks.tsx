@@ -1,6 +1,7 @@
 import { Text } from "@contentful/rich-text-types";
+import React from "react";
 
-export default function markers(c: Text) {
+export default function markers(c: Text, idx: number) {
   if (c.nodeType !== "text") {
     console.error("Invalid");
     return <></>;
@@ -32,14 +33,15 @@ export default function markers(c: Text) {
           current = <sub>{current}</sub>;
           break;
         case "code":
-          current = <code className="p-1 bg-gray-400 rounded-md">{current}</code>;
+          current = (
+            <code className="p-1 bg-gray-400 rounded-md">{current}</code>
+          );
         default:
           current = <>{current}</>;
           break;
       }
       i++;
     }
-    return current;
+    return React.cloneElement(current, { key: idx });
   }
-  // c.marks[0].type
 }
