@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image, { ImageLoader, ImageProps } from "next/image";
 
 const contentfulLoader: ImageLoader = ({ src, width, quality }) => {

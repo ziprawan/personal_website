@@ -2,8 +2,8 @@ import PostCard from "@/components/post/card";
 import { getPosts } from "@/utils/contentful/client";
 
 export const metadata = {
-  title: "Post Lists"
-}
+  title: "Post Lists",
+};
 
 export default async function Home() {
   const items = await getPosts();
