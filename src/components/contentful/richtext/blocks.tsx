@@ -81,7 +81,7 @@ export default function Blocks({ content }: { content: TopLevelBlock }) {
           case INLINES.EMBEDDED_ENTRY: {
             const field = c.data.target.fields;
             return (
-              <Link href={`/posts/${field.slug}`} className="">
+              <Link href={`/posts/${field.slug}`} key={idx}>
                 <div
                   className={`flex ${
                     entryIsFirst ? "" : "ml-2"
