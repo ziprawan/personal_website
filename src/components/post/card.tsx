@@ -24,13 +24,15 @@ export default function PostCard({
           shadow ? "transition-shadow shadow-md hover:shadow-xl" : ""
         } font-sans my-4 outline outline-1 rounded-md overflow-hidden h-36 xl:h-48 duration-300`}
       >
-        <div className="outline outline-1 w-1/3 xl:w-1/5 flex content-center bg-pink-50">
+        <div className="outline outline-1 w-1/3 xl:w-1/5 flex content-center bg-pink-50 overflow-hidden">
           <ContentfulImage
             src={file.url}
             alt={field.coverImage.fields.description ?? ""}
             width={file.details.image?.width}
             height={file.details.image?.height}
-            className={`object-cover ${noHover ? "" : "hover:object-contain"}`}
+            className={`object-cover object-center transition-all duration-500 ease-in-out ${
+              noHover ? "" : "hover:scale-[1.1]"
+            }`}
           />
         </div>
         <div className="px-4 py-2 w-2/3 xl:w-4/5">
