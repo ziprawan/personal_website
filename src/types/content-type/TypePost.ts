@@ -1,6 +1,6 @@
-import { Asset, ChainModifiers, EntrySys, Metadata } from "contentful";
+import { Asset, EntrySys, Metadata } from "contentful";
 import { TypeAuthor } from "./TypeAuthor";
-import { Document, TOP_LEVEL_BLOCKS } from "@contentful/rich-text-types";
+import { Document } from "@contentful/rich-text-types";
 
 export type TypePost = {
   metadata: Metadata;

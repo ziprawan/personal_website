@@ -1,6 +1,7 @@
 import { TypePost } from "@/types/content-type/TypePost";
 import * as contentful from "contentful";
 import { cache } from "react";
+import * as logger from "../logger";
 
 const client = contentful.createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
@@ -8,7 +9,7 @@ const client = contentful.createClient({
 });
 
 export const getPosts = cache(async (slug?: string | undefined) => {
-  console.log("getPosts called.");
+  logger.debug("getPosts called.");
   let opt: contentful.EntriesQueries<contentful.EntrySkeletonType, undefined> =
     { content_type: "post" };
   if (slug) opt = { ...opt, "fields.slug": slug };

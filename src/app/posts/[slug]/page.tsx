@@ -1,5 +1,6 @@
 import PostBody from "@/components/post/body";
 import { getPosts } from "@/utils/contentful/client";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -15,11 +16,17 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const posts = await getPosts();
-  const slugs: string[] = [];
-  posts.forEach((p) => slugs.push(p.fields.slug));
+  const post = await getPosts(params.slug);
+  if (post.length <= 0) {
+    return {
+      title: "Ziprawan - Not Found",
+      description: `Requested page (${params.slug}) is not found`,
+    };
+  }
+
   return {
-    title: posts[slugs.indexOf(params.slug)].fields.title,
+    title: post[0].fields.title,
+    description: post[0].fields.excerpt,
   };
 }
 
@@ -28,17 +35,15 @@ export default async function PostSlug({
 }: {
   params: { slug: string };
 }) {
-  const posts = await getPosts();
-  const slugs: string[] = [];
-  posts.forEach((p) => slugs.push(p.fields.slug));
-  if (!slugs.includes(params.slug)) {
-    return (
-      <div className="items-center text-6xl font-bold">Post Not Found!</div>
-    );
+  const post = await getPosts(params.slug);
+
+  if (post.length <= 0) {
+    notFound();
   }
+
   return (
     <div>
-      <PostBody post={posts[slugs.indexOf(params.slug)]} />
+      <PostBody post={post[0]} />
     </div>
   );
 }

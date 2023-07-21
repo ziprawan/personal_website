@@ -1,5 +1,7 @@
+import * as logger from "@/utils/logger";
+
 async function getData() {
-  console.log("Get data");
+  logger.debug("Get data");
   const fetched = await fetch("https://enka.network/api/uid/857313418?info");
   return await fetched.json();
 }

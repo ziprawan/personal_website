@@ -1,5 +1,4 @@
 import { TopLevelBlock } from "@contentful/rich-text-types";
-import ContentfulImage from "../image";
 import PostCard from "@/components/post/card";
 
 type Props = { contents: TopLevelBlock };
