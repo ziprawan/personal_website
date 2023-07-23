@@ -2,6 +2,8 @@ import PostBody from "@/components/post/body";
 import { getPosts } from "@/utils/contentful/client";
 import { notFound } from "next/navigation";
 
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
   const posts = await getPosts();
   const slugs: { slug: string }[] = [];

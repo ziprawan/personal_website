@@ -1,6 +1,8 @@
 import PostCard from "@/components/post/card";
 import { getPosts } from "@/utils/contentful/client";
 
+export const revalidate = 3600;
+
 export const metadata = {
   title: "Post Lists",
 };
