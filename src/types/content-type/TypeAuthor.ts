@@ -11,6 +11,6 @@ export type TypeAuthor = {
   };
   fields: {
     name: string;
-    picture: Asset<ChainModifiers>;
+    picture: Asset<"WITHOUT_UNRESOLVABLE_LINKS">;
   };
 };

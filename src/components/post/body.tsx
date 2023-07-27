@@ -3,6 +3,7 @@ import ContentfulDate from "../contentful/date";
 import ContentfulImage from "../contentful/image";
 import { AssetFile } from "contentful";
 import ContentfulRichText from "../contentful/richtext";
+import ContentfulAuthor from "../contentful/author";
 
 type params = {
   post: TypePost;
@@ -11,12 +12,16 @@ type params = {
 export default function PostBody({ post }: params) {
   const file = post.fields.coverImage.fields.file as AssetFile;
   return (
-    <div className="container max-w-prose m-auto my-4 block border border-dashed border-slate-600">
+    <div className="container max-w-prose m-auto block border border-dashed border-slate-600">
       <div className="text-4xl font-bold p-4 border-b border-dashed border-slate-600">
         {post.fields.title}
       </div>
-      <div className="a text-right p-4">
-        <ContentfulDate date={post.fields.date} prefix="Posted at: " />
+      <div className="flex p-4 justify-between">
+        <ContentfulAuthor
+          name={post.fields.author.fields.name}
+          photo={post.fields.author.fields.picture.fields}
+        />
+        <ContentfulDate date={post.sys.createdAt} prefix="Posted at: " />
       </div>
       <div className="overflow-hidden border-b border-t border-dashed border-slate-600">
         <div className="p-4">
