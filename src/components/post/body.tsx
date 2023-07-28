@@ -13,11 +13,11 @@ export default function PostBody({ post }: params) {
   const img = post.fields.coverImage;
   const file = img ? (img.fields.file as AssetFile) : undefined;
   return (
-    <div className="container max-w-4xl m-auto block border border-dashed border-slate-600">
+    <div className="container my-2 max-w-4xl m-auto block border border-dashed border-slate-600">
       <div className="text-4xl font-bold p-4 border-b border-dashed border-slate-600">
         {post.fields.title}
       </div>
-      <div className="flex p-4 justify-between">
+      <div className="flex p-4 justify-between border-b border-dashed border-slate-600">
         <ContentfulAuthor
           name={post.fields.author.fields.name}
           photo={post.fields.author.fields.picture.fields}
@@ -25,7 +25,7 @@ export default function PostBody({ post }: params) {
         <ContentfulDate date={post.sys.createdAt} prefix="Posted at: " />
       </div>
       {img && file ? (
-        <div className="overflow-hidden border-b border-t border-dashed border-slate-600">
+        <div className="overflow-hidden border-b border-dashed border-slate-600">
           <div className="p-4">
             <ContentfulImage
               alt={img.fields.description as string}
