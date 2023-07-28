@@ -13,7 +13,7 @@ export default function PostBody({ post }: params) {
   const img = post.fields.coverImage;
   const file = img ? (img.fields.file as AssetFile) : undefined;
   return (
-    <div className="container max-w-prose m-auto block border border-dashed border-slate-600">
+    <div className="container max-w-4xl m-auto block border border-dashed border-slate-600">
       <div className="text-4xl font-bold p-4 border-b border-dashed border-slate-600">
         {post.fields.title}
       </div>
