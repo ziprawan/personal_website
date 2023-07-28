@@ -12,14 +12,14 @@ export default async function Home() {
 
   return (
     <main>
-      <div className="post-text text-4xl text-center font-serif font-bold my-6">
+      <div className="post-text text-4xl text-center font-bold mb-4">
         My posts
       </div>
       <hr />
       <div className="post-card mx-6 my-4">
-        {items.map((item) => (
-          <PostCard key={item.fields.slug} field={item.fields} />
-        ))}
+        {items.map((item) => {
+          return <PostCard key={item.fields.slug} field={item.fields} />;
+        })}
       </div>
     </main>
   );

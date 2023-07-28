@@ -1,12 +1,34 @@
 import { TopLevelBlock } from "@contentful/rich-text-types";
 import PostCard from "@/components/post/card";
+import ContentfulImage from "../image";
 
 type Props = { contents: TopLevelBlock };
 
 export function RichTextEmbedAsset({ contents }: Props) {
+  type AssetType = {
+    title: string;
+    description?: string;
+    file: any;
+  };
+  const fields = contents.data.target.fields as AssetType;
+  const file = fields.file;
+  const mimeType = file.contentType as string;
+
+  if (["image/jpeg", "image/png"].includes(mimeType)) {
+    return (
+      <ContentfulImage
+        alt={fields.description as string}
+        src={file.url}
+        width={file.details.image?.width}
+        height={file.details.image?.height}
+        className="rounded-lg mx-auto"
+      />
+    );
+  }
+
   return (
     <div className="my-2 italic text-gray-500">
-      Current nodeType: {contents.nodeType} isn&#39;t supported
+      Current mimeType: {fields.file.contentType} isn&#39;t supported
     </div>
   );
 }

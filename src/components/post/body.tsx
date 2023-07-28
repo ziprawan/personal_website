@@ -10,7 +10,8 @@ type params = {
 };
 
 export default function PostBody({ post }: params) {
-  const file = post.fields.coverImage.fields.file as AssetFile;
+  const img = post.fields.coverImage;
+  const file = img ? (img.fields.file as AssetFile) : undefined;
   return (
     <div className="container max-w-prose m-auto block border border-dashed border-slate-600">
       <div className="text-4xl font-bold p-4 border-b border-dashed border-slate-600">
@@ -23,17 +24,21 @@ export default function PostBody({ post }: params) {
         />
         <ContentfulDate date={post.sys.createdAt} prefix="Posted at: " />
       </div>
-      <div className="overflow-hidden border-b border-t border-dashed border-slate-600">
-        <div className="p-4">
-          <ContentfulImage
-            alt={post.fields.coverImage.fields.description as string}
-            src={file.url}
-            width={file.details.image?.width}
-            height={file.details.image?.height}
-            className="rounded-lg mx-auto"
-          />
+      {img && file ? (
+        <div className="overflow-hidden border-b border-t border-dashed border-slate-600">
+          <div className="p-4">
+            <ContentfulImage
+              alt={img.fields.description as string}
+              src={file.url}
+              width={file.details.image?.width}
+              height={file.details.image?.height}
+              className="rounded-lg mx-auto"
+            />
+          </div>
         </div>
-      </div>
+      ) : (
+        <></>
+      )}
       <div className="p-4">
         <ContentfulRichText content={post.fields.content} />
       </div>

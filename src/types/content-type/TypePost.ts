@@ -15,7 +15,7 @@ export type TypePost = {
     title: string;
     slug: string;
     excerpt: string;
-    coverImage: Asset<"WITHOUT_UNRESOLVABLE_LINKS">;
+    coverImage?: Asset<"WITHOUT_UNRESOLVABLE_LINKS">;
     author: TypeAuthor;
     date: string;
     content: Document;
