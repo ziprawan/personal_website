@@ -4,7 +4,11 @@ import RichTextListItem from "./list-item";
 import RichTextTable from "./table";
 import { RichTextEmbedAsset, RichTextEmbedEntry } from "./embed";
 
-export default function contentMapper(content: TopLevelBlock, idx?: number) {
+export default function contentMapper(
+  content: TopLevelBlock,
+  darkMode: boolean,
+  idx?: number
+) {
   switch (content.nodeType) {
     case BLOCKS.PARAGRAPH:
       return <Blocks content={content} key={idx} />;
@@ -52,7 +56,14 @@ export default function contentMapper(content: TopLevelBlock, idx?: number) {
       );
     }
     case BLOCKS.HR: {
-      return <hr className="hr border border-slate-950" key={idx} />;
+      return (
+        <hr
+          className={`hr border ${
+            darkMode ? "border-white" : "border-slate-950"
+          }`}
+          key={idx}
+        />
+      );
     }
     case BLOCKS.UL_LIST: {
       return (
@@ -72,7 +83,11 @@ export default function contentMapper(content: TopLevelBlock, idx?: number) {
       return (
         <blockquote
           key={idx}
-          className="b border-l-4 border-gray-600 text-gray-600 pl-4"
+          className={`border-l-4 duration-300 ${
+            darkMode
+              ? "border-slate-300 text-slate-300"
+              : "border-gray-600 text-gray-600"
+          } pl-4`}
         >
           <Blocks content={content} />
         </blockquote>

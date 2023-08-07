@@ -14,15 +14,17 @@ export function RichTextEmbedAsset({ contents }: Props) {
   const file = fields.file;
   const mimeType = file.contentType as string;
 
-  if (["image/jpeg", "image/png"].includes(mimeType)) {
+  if (mimeType.startsWith("image/")) {
     return (
-      <ContentfulImage
-        alt={fields.description as string}
-        src={file.url}
-        width={file.details.image?.width}
-        height={file.details.image?.height}
-        className="rounded-lg mx-auto"
-      />
+      <div className="max-w-lg">
+        <ContentfulImage
+          alt={fields.description as string}
+          src={file.url}
+          width={file.details.image?.width}
+          height={file.details.image?.height}
+          className="rounded-lg mx-auto"
+        />
+      </div>
     );
   }
 

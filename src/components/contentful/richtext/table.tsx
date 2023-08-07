@@ -1,28 +1,50 @@
+"use client";
+
 import { BLOCKS, TopLevelBlock } from "@contentful/rich-text-types";
 import Blocks from "./blocks";
+import { useContext } from "react";
+import DarkModeContext, {
+  DarkModeContextProps,
+} from "@/context/darkmode/darkmode";
 
-const className = "p-2";
+const className = "p-2 duration-300";
 
 export default function RichTextTable({
   contents,
 }: {
   contents: TopLevelBlock;
 }) {
+  const { darkMode } = useContext(DarkModeContext) as DarkModeContextProps;
+
   return (
-    <div className="rounded-lg overflow-hidden border border-black">
+    <div
+      className={`rounded-lg overflow-hidden border ${
+        darkMode ? "border-white" : "border-black"
+      }`}
+    >
       <table className="min-w-full table-auto">
-        <tbody className="divide-y divide-black">
+        <tbody
+          className={`divide-y ${darkMode ? "divide-white" : "divide-black"}`}
+        >
           {contents.content.map((content, idx) => {
             switch (content.nodeType) {
               case BLOCKS.TABLE_ROW: {
                 return (
-                  <tr key={idx} className="divide-x divide-black">
+                  <tr
+                    key={idx}
+                    className={`divide-x ${
+                      darkMode ? "divide-white" : "divide-black"
+                    }`}
+                  >
                     {content.content.map((tableRow, t_idx) => {
                       const nodeType = tableRow.nodeType;
                       if (nodeType === BLOCKS.TABLE_HEADER_CELL) {
                         return (
                           <th
-                            className={className + " bg-gray-400"}
+                            className={
+                              className +
+                              ` ${darkMode ? "bg-slate-900" : "bg-gray-400"}`
+                            }
                             key={t_idx}
                           >
                             <Blocks content={tableRow as TopLevelBlock} />
@@ -30,7 +52,12 @@ export default function RichTextTable({
                         );
                       } else if (nodeType === BLOCKS.TABLE_CELL) {
                         return (
-                          <td key={t_idx} className={className}>
+                          <td
+                            key={t_idx}
+                            className={
+                              className + ` ${darkMode && "bg-slate-800"}`
+                            }
+                          >
                             <Blocks content={tableRow as TopLevelBlock} />
                           </td>
                         );

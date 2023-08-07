@@ -10,7 +10,7 @@ export default function ContentfulDate({
   const dateParsed = new Date(date);
   const showDate = dateParsed.toLocaleString("id-ID");
   return (
-    <div className={`text-gray-400 text-sm ${className}`}>
+    <div className={`text-gray-400 duration-300 text-sm ${className}`}>
       {prefix}
       {showDate}
     </div>

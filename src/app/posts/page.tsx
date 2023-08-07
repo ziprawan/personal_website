@@ -12,11 +12,11 @@ export default async function Home() {
 
   return (
     <main>
-      <div className="post-text text-4xl text-center font-bold mb-4">
+      <div className="transition-all duration-300 post-text text-4xl text-center font-bold pb-4">
         My posts
       </div>
       <hr />
-      <div className="post-card mx-6 my-4">
+      <div className="post-card px-6 py-4">
         {items.map((item) => {
           return <PostCard key={item.fields.slug} field={item.fields} />;
         })}

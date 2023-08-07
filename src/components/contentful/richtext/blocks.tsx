@@ -1,12 +1,20 @@
+"use client";
+
 import { BLOCKS, INLINES, TopLevelBlock } from "@contentful/rich-text-types";
 import markers from "./marks";
 import Link from "next/link";
 import { TypePost } from "@/types/content-type/TypePost";
 import ContentfulDate from "../date";
+import { useContext } from "react";
+import DarkModeContext, {
+  DarkModeContextProps,
+} from "@/context/darkmode/darkmode";
 
 export default function Blocks({ content }: { content: TopLevelBlock }) {
   let entryIsFirst = true;
   const nodeTypes = content.content.map((c) => c.nodeType);
+  const { darkMode } = useContext(DarkModeContext) as DarkModeContextProps;
+
   return (
     <div
       className={`whitespace-pre-wrap ${
@@ -41,7 +49,11 @@ export default function Blocks({ content }: { content: TopLevelBlock }) {
               <a
                 key={idx}
                 href={c.data.uri as string}
-                className="transition-colors duration-300 text-blue-500 text- hover:text-blue-800 hover:underline"
+                className={`transition-colors duration-300 ${
+                  darkMode
+                    ? "text-blue-400 hover:text-blue-200"
+                    : "text-blue-500 hover:text-blue-800"
+                } hover:underline`}
                 target="_blank"
               >
                 {c.content.map((hyperlink, h_idx) => {
@@ -63,7 +75,11 @@ export default function Blocks({ content }: { content: TopLevelBlock }) {
               <Link
                 key={idx}
                 href={`/posts/${(c.data.target as TypePost).fields.slug}`}
-                className="transition-colors duration-300 text-blue-500 text- hover:text-blue-800 hover:underline"
+                className={`transition-colors duration-300 ${
+                  darkMode
+                    ? "text-blue-400 hover:text-blue-200"
+                    : "text-blue-500 hover:text-blue-800"
+                } hover:underline`}
               >
                 {c.content.map((entryHyperlink, eh_idx) => {
                   if (entryHyperlink.nodeType === "text") {
@@ -83,9 +99,9 @@ export default function Blocks({ content }: { content: TopLevelBlock }) {
             return (
               <Link href={`/posts/${field.slug}`} key={idx}>
                 <div
-                  className={`flex ${
-                    entryIsFirst ? "" : "ml-2"
-                  } bg-gray-100 font-sans outline outline-1 rounded-md w-fit px-2`}
+                  className={`flex duration-300 ${entryIsFirst ? "" : "ml-2"} ${
+                    darkMode ? "bg-slate-900" : "bg-gray-100"
+                  } font-sans outline outline-1 rounded-md w-fit px-2`}
                 >
                   <div className="font-bold text-sm">{field.title}</div>
                   <ContentfulDate className="pl-1" date={field.date} />

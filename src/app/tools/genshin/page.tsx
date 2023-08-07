@@ -2,7 +2,11 @@ import * as logger from "@/utils/logger";
 
 async function getData() {
   logger.debug("Get data");
-  const fetched = await fetch("https://enka.network/api/uid/857313418?info");
+  const fetched = await fetch("https://enka.network/api/uid/857313418?info", {
+    next: {
+      revalidate: 3600,
+    },
+  });
   return await fetched.json();
 }
 
