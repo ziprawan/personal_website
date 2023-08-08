@@ -40,7 +40,7 @@ export default function PostCard({
               alt={img.fields.description ?? ""}
               width={file.details.image?.width}
               height={file.details.image?.height}
-              className={`object-cover object-center transition-all duration-500 ease-in-out ${
+              className={`object-cover transition-all duration-500 ease-in-out ${
                 noHover ? "" : "hover:scale-[1.1]"
               }`}
             />
