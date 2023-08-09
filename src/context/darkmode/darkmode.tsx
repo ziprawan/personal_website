@@ -50,6 +50,14 @@ export const DarkModeProvider = ({
     }
   }, [darkMode]);
 
+  useEffect(() => {
+    addEventListener("storage", (e) => {
+      if (e.key === "darkMode") {
+        setDarkMode(e.newValue === "true" ? true : false);
+      }
+    });
+  }, []);
+
   return (
     <DarkModeContext.Provider
       value={{
