@@ -1,6 +1,12 @@
+"use client";
+
 import { TopLevelBlock } from "@contentful/rich-text-types";
 import PostCard from "@/components/post/card";
 import ContentfulImage from "../image";
+import { useContext } from "react";
+import DarkModeContext, {
+  DarkModeContextProps,
+} from "@/context/darkmode/darkmode";
 
 type Props = { contents: TopLevelBlock };
 
@@ -10,9 +16,11 @@ export function RichTextEmbedAsset({ contents }: Props) {
     description?: string;
     file: any;
   };
+
   const fields = contents.data.target.fields as AssetType;
   const file = fields.file;
   const mimeType = file.contentType as string;
+  const { darkMode } = useContext(DarkModeContext) as DarkModeContextProps;
 
   if (mimeType.startsWith("image/")) {
     return (
@@ -22,7 +30,9 @@ export function RichTextEmbedAsset({ contents }: Props) {
           src={file.url}
           width={file.details.image?.width}
           height={file.details.image?.height}
-          className="rounded-lg mx-auto"
+          className={`rounded-lg mx-auto transition-all duration-300 border ${
+            darkMode ? "bg-gray-500 border-slate-300" : " bg-white border-black"
+          }`}
         />
       </div>
     );

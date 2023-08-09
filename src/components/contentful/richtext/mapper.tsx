@@ -59,7 +59,7 @@ export default function contentMapper(
       return (
         <hr
           className={`hr border ${
-            darkMode ? "border-white" : "border-slate-950"
+            darkMode ? "border-slate-300" : "border-slate-950"
           }`}
           key={idx}
         />

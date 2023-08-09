@@ -19,7 +19,7 @@ export default function RichTextTable({
   return (
     <div
       className={`rounded-lg overflow-hidden border ${
-        darkMode ? "border-white" : "border-black"
+        darkMode ? "border-slate-300" : "border-black"
       }`}
     >
       <table className="min-w-full table-auto">

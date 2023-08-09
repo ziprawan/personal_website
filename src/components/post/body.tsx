@@ -19,7 +19,7 @@ export default function PostBody({ post }: params) {
   const img = post.fields.coverImage;
   const file = img ? (img.fields.file as AssetFile) : undefined;
   const { darkMode } = useContext(DarkModeContext) as DarkModeContextProps;
-  const borderColor = darkMode ? "border-white" : "border-slate-600";
+  const borderColor = darkMode ? "border-slate-300" : "border-slate-600";
 
   return (
     <div
