@@ -15,7 +15,7 @@ This is my [personal website](https://ziprawan.vercel.app)'s source code that bo
 - Run `yarn dev` (default web port: 3000)
 
 ## Environment
-You can see required environments from `.env.sample`
+You can see required environments from `sample.env`
 Rename or copy it to `.env` or `.env.local`
 
 - `CONTENTFUL_ACCESS_TOKEN` - Access token of contentful CDA
