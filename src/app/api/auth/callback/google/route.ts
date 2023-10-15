@@ -1,6 +1,10 @@
 import checkRequiredEnvironments from "@/utils/server/checkReqEnv";
 import { NextRequest, NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
+import sendResponse from "@/utils/server/send";
+import * as jose from "jose";
+import connect from "@/database/client";
+import RedirectModel from "@/database/schemas/redirect";
+import GoogleModel from "@/database/schemas/google";
 
 export async function GET(request: NextRequest) {
   if (
@@ -17,6 +21,8 @@ export async function GET(request: NextRequest) {
         "Internal server error. If you're the owner of this website, please check error logs.",
     });
   }
+
+  await connect();
 
   const url = new URL(request.url);
   const params = url.searchParams;
@@ -40,6 +46,7 @@ export async function GET(request: NextRequest) {
 
   // Get redirect uri
   const decoded = atob(state).split("_");
+  console.log(decoded);
   if (decoded.length !== 2) {
     return NextResponse.json(
       {
@@ -52,7 +59,14 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  const redirect_uri = decoded[0];
+  const redirect_uri = new URL(decoded[0]);
+  const allowedUris = await RedirectModel.findOne({
+    name: redirect_uri.origin,
+  });
+
+  if (!allowedUris) {
+    return sendResponse("Redirect uri mismatch.", 401);
+  }
 
   // Fetch access token
   const fields = [
@@ -60,7 +74,7 @@ export async function GET(request: NextRequest) {
     ["client_secret", process.env.GOOGLE_SECRET],
     ["code", code],
     ["grant_type", "authorization_code"],
-    ["redirect_uri", process.env.AUTH_URL],
+    ["redirect_uri", `${process.env.AUTH_URL}/api/auth/callback/google`],
   ];
   const formBody = fields
     .map((field) => {
@@ -79,7 +93,6 @@ export async function GET(request: NextRequest) {
   const json_token = await fetch_token.json();
 
   if ("error" in json_token) {
-    console.log(json_token);
     if (json_token.error === "redirect_uri_mismatch") {
       return NextResponse.json(
         {
@@ -104,7 +117,6 @@ export async function GET(request: NextRequest) {
   }
 
   const access_token = json_token.access_token as String;
-  console.log(json_token, access_token);
 
   // Get user info
   const fetch_info = await fetch(
@@ -118,24 +130,40 @@ export async function GET(request: NextRequest) {
   const json_info: Record<string, string> = await fetch_info.json();
 
   if ("error" in json_info) {
-    return NextResponse.json(
-      {
-        ok: false,
-        description: "Something went wrong when fethcing user info.",
-      },
-      { status: 417 }
-    );
+    return sendResponse("Something went wrong when fethcing user info.", 417);
   }
 
-  const { id, name, email, picture, locale } = json_info;
-  const client = { id, name, email, picture, locale };
-  const signed = jwt.sign(client, process.env.AUTH_SECRET!);
+  await connect();
 
-  return NextResponse.json({
-    ok: true,
-    message: {
-      status: "authenticated",
-      session_token: signed,
-    },
-  });
+  const { id, name, email, picture, locale } = json_info;
+  const client = { id };
+
+  const found = await GoogleModel.findOne({ id });
+  if (!found) {
+    const newUser = new GoogleModel({
+      id,
+      name,
+      email,
+      picture,
+      locale,
+      username: null,
+    });
+    await newUser.save();
+  }
+
+  // encrypt to jwt
+  const secret = jose.base64url.decode(process.env.AUTH_SECRET!.slice(0, 43));
+  const signed = await new jose.EncryptJWT(client)
+    .setExpirationTime("7d")
+    .setProtectedHeader({ alg: "dir", enc: "A128CBC-HS256" })
+    .encrypt(secret);
+
+  redirect_uri.searchParams.append("access_token", signed);
+  return NextResponse.redirect(redirect_uri);
+
+  // return sendResponse({
+  //   status: "authenticated",
+  //   session_token: signed,
+  //   redirect_uri,
+  // });
 }
