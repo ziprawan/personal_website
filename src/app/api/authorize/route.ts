@@ -6,7 +6,7 @@ import randomString from "@/utils/tools/random";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
-  if (!checkRequiredEnvironments(["GOOGLE_ID", "GOOGLE_SECRET"])) {
+  if (!checkRequiredEnvironments(["GOOGLE_ID", "GOOGLE_SECRET", "AUTH_URL"])) {
     return NextResponse.json({
       ok: false,
       description:
@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
     baseUrl.searchParams.set("response_type", "code");
     baseUrl.searchParams.set(
       "redirect_uri",
-      "http://localhost:3000/api/auth/callback/google"
+      process.env.AUTH_URL + "/api/auth/callback/google"
     );
     baseUrl.searchParams.set(
       "state",
