@@ -5,12 +5,13 @@ import sendResponse from "@/utils/server/send";
 import randomString from "@/utils/tools/random";
 import { NextRequest, NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: NextRequest) {
   if (!checkRequiredEnvironments(["GOOGLE_ID", "GOOGLE_SECRET", "AUTH_URL"])) {
     return NextResponse.json({
       ok: false,
-      description:
-        "Internal server error. If you're the owner of this website, please check error logs.",
+      description: "Internal server error. If you're the owner of this website, please check error logs.",
     });
   }
 
@@ -45,17 +46,10 @@ export async function GET(request: NextRequest) {
     baseUrl.searchParams.set("scope", "openid email profile");
     baseUrl.searchParams.set("client_id", process.env.GOOGLE_ID!);
     baseUrl.searchParams.set("response_type", "code");
-    baseUrl.searchParams.set(
-      "redirect_uri",
-      process.env.AUTH_URL + "/api/auth/callback/google"
-    );
+    baseUrl.searchParams.set("redirect_uri", process.env.AUTH_URL + "/api/auth/callback/google");
     baseUrl.searchParams.set(
       "state",
-      btoa(
-        String.fromCodePoint(
-          ...new TextEncoder().encode(redirect_uri + "_" + randomString(16))
-        )
-      )
+      btoa(String.fromCodePoint(...new TextEncoder().encode(redirect_uri + "_" + randomString(16))))
     );
 
     return NextResponse.redirect(baseUrl);

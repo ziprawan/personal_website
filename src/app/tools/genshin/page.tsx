@@ -3,11 +3,19 @@ import * as logger from "@/utils/logger";
 async function getData() {
   logger.debug("Get data");
   const fetched = await fetch("https://enka.network/api/uid/857313418?info", {
+    headers: {
+      "User-Agent": "Ziprawan-Web",
+    },
     next: {
       revalidate: 3600,
     },
   });
-  return await fetched.json();
+
+  try {
+    return await fetched.json();
+  } catch (err) {
+    return (err as Error).stack;
+  }
 }
 
 export default async function GenshinPage() {
