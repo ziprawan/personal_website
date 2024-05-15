@@ -1,4 +1,5 @@
-import Series from "#hsrOutput/series.json";
+// import Series from Output/series.json";
+import Series from "@/../assets/hsr/Output/series.json";
 import { IMultiTextMap, ITextMap } from "@/types/textmap/text";
 import { readFileSync } from "fs";
 import SeriesCard from "./seriesCard";

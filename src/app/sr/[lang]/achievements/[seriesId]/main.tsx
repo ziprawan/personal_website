@@ -1,4 +1,4 @@
-import AchievementData from "#hsrOutput/achievements.json";
+import AchievementData from "@/../assets/hsr/Output/achievements.json";
 import { IAchievementData } from "@/types/achievement/achdata";
 import { ITextMap } from "@/types/textmap/text";
 import { readFileSync } from "fs";
