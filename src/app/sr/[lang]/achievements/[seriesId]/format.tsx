@@ -57,16 +57,13 @@ function mapParams(input: string, params: number[]): string {
       if (numbers.includes(c)) {
         tagNumber += parseInt(c) * 10 ** pow++;
         continue;
-      } else if (c === " ") {
-        isNowTag = false;
-        continue;
       } else {
-        throw new Error(`${c} is not a number!`);
+        isNowTag = false;
+        res += String(params[tagNumber - 1]) + `${c}`;
+        tagNumber = 0;
+        pow = 0;
+        continue;
       }
-    } else if (!isNowTag && tagNumber > 0) {
-      res += String(params[tagNumber - 1]) + ` ${c}`;
-      tagNumber = 0;
-      pow = 0;
     } else res += c;
   }
 

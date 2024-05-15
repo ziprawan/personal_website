@@ -1,8 +1,6 @@
-import AchievementData from "#hsrOutput/achievements.json";
-import { IAchievementData } from "@/types/achievement/achdata";
 import { ITextMap } from "@/types/textmap/text";
 import { readFileSync } from "fs";
-import AchievementCard from "./achievementCard";
+import SRAchievementClientPage from "./client";
 
 interface SRAchievementSeriesDetailPageProps {
   params: { lang: string; seriesId: string };
@@ -14,16 +12,5 @@ export default function SRAchievementSeriesDetailMain({ params }: SRAchievementS
     readFileSync(`${process.cwd()}/assets/hsr/Output/Text/Text${lang.toUpperCase()}.json`).toString()
   ) as ITextMap;
 
-  return (
-    <div>
-      <div className="flex flex-col gap-1">
-        {Object.values(AchievementData)
-          .filter((a) => String(a.seriesId) === params.seriesId)
-          .sort((a, b) => b.priority - a.priority)
-          .map((a) => {
-            return <AchievementCard key={`ach_${a.id}`} achievement={a as IAchievementData} textMap={textData} />;
-          })}
-      </div>
-    </div>
-  );
+  return <SRAchievementClientPage params={params} textData={textData} />;
 }

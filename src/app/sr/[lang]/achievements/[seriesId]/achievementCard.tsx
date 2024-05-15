@@ -21,7 +21,10 @@ export default function AchievementCard({ achievement, textMap }: { achievement:
   return (
     <div className="bg-[#5C8374] mt-2 rounded-md p-3 flex justify-between items-center">
       <div className="w-5/6">
-        <div className="font-bold">{formatAchievementText(textMap[achievement.titleHash])}</div>
+        <div className="flex gap-1 items-center">
+          <div className="font-bold">{formatAchievementText(textMap[achievement.titleHash])}</div>
+          <div className="italic text-xs">{achievement.showType === "ShowAfterFinish" ? "(HIDDEN)" : ""}</div>
+        </div>
         <div className="italic">{formatAchievementText(textMap[achievement.descriptionHash], achievement.params)}</div>
       </div>
       <div className="text-center">
