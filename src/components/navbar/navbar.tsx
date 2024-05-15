@@ -2,16 +2,12 @@
 
 import Link from "next/link";
 import { useContext, useState } from "react";
-import DarkModeContext, {
-  DarkModeContextProps,
-} from "@/context/darkmode/darkmode";
+import DarkModeContext, { DarkModeContextProps } from "@/context/darkmode/darkmode";
 import { HiMoon, HiSun } from "react-icons/hi";
 
 export default function Navbar() {
   const [count, setCount] = useState(0);
-  const { darkMode, setDarkMode } = useContext(
-    DarkModeContext
-  ) as DarkModeContextProps;
+  const { darkMode, setDarkMode } = useContext(DarkModeContext) as DarkModeContextProps;
 
   function navbarEasterEgg() {
     if (count % 1000 === 0 && count !== 0) {
@@ -29,15 +25,13 @@ export default function Navbar() {
   }
 
   function darkModeClass() {
-    return darkMode
-      ? "text-white bg-slate-950 shadow-slate-800"
-      : "text-black bg-white";
+    return darkMode ? "text-white bg-slate-950 shadow-slate-800" : "text-black bg-white";
   }
 
   return (
     <div
       onClick={navbarEasterEgg}
-      className={`transition-all z-10 duration-300 py-4 select-none text-3xl font-bold flex fixed w-full justify-between shadow-md ${darkModeClass()}`}
+      className={`transition-all z-10 duration-300 py-4 select-none text-3xl font-bold flex fixed w-full justify-between outline ${darkModeClass()}`}
     >
       <div className="flex">
         <div className="px-10">
