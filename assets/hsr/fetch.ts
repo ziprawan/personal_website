@@ -7,8 +7,8 @@ const TEXT_MAP_DATA = {
   ID: "https://github.com/Dimbreath/StarRailData/raw/master/TextMap/TextMapID.json",
 };
 
-const EXCEL_OUTPUT_PATH = "./assets/achievements/ExcelOutput";
-const TEXT_MAP_PATH = "./assets/achievements/TextMap";
+const EXCEL_OUTPUT_PATH = "./assets/hsr/ExcelOutput";
+const TEXT_MAP_PATH = "./assets/hsr/TextMap";
 
 const defaultCallbackFn = () => {};
 const getSize = (len: number) => {

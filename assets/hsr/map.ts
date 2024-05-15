@@ -1,5 +1,5 @@
-import AchievementData from "#achExcelOutput/AchievementData.json";
-import AchievementSeries from "#achExcelOutput/AchievementSeries.json";
+import AchievementData from "#hsrExcelOutput/AchievementData.json";
+import AchievementSeries from "#hsrExcelOutput/AchievementSeries.json";
 import { readFileSync, writeFileSync } from "fs";
 
 // Interfaces
@@ -28,9 +28,15 @@ interface IAchievementSeries {
 let series: { [k: string]: IAchievementSeries } = {};
 let achievements: { [k: string]: IAchievementData } = {};
 const neededStrings: number[] = [];
+const TEXT_MAP_PATH = "./assets/hsr/TextMap";
+const OUT_PATH = "./assets/hsr/Output";
 
 // Getting achievement series' members list
-const seriesMembersList: number[][] = Array(Object.keys(AchievementSeries).length).fill([]);
+const seriesMembersList: number[][] = new Array(Object.keys(AchievementSeries).length);
+
+for (let i = 0; i < 9; i++) {
+  seriesMembersList[i] = new Array();
+}
 
 Object.values(AchievementData).forEach((achievement) => {
   seriesMembersList[achievement.SeriesID - 1].push(achievement.AchievementID);
@@ -48,7 +54,7 @@ Object.values(AchievementSeries).forEach((seriesData) => {
 });
 
 // Write series into file
-writeFileSync("./src/assets/achievements/output/series.json", JSON.stringify(series));
+writeFileSync(OUT_PATH + "/series.json", JSON.stringify(series));
 
 // Mapping Achievement Data
 Object.values(AchievementData).forEach((achievement) => {
@@ -70,7 +76,7 @@ Object.values(AchievementData).forEach((achievement) => {
 });
 
 // Write achievements data into file
-writeFileSync("./src/assets/achievements/output/achievements.json", JSON.stringify(achievements));
+writeFileSync(OUT_PATH + "/achievements.json", JSON.stringify(achievements));
 
 // Read text map
 const supportedLangs = ["EN", "ID"];
@@ -79,7 +85,7 @@ const supportedLangs = ["EN", "ID"];
 supportedLangs.forEach((lang) => {
   let langData: { [k: string]: string } = {};
   lang = lang.toUpperCase();
-  const read = JSON.parse(readFileSync(`./src/assets/achievements/TextMap/TextMap${lang}.json`).toString()) as {
+  const read = JSON.parse(readFileSync(`${TEXT_MAP_PATH}/TextMap${lang}.json`).toString()) as {
     [k: string]: string;
   };
 
@@ -87,5 +93,5 @@ supportedLangs.forEach((lang) => {
     langData[sid] = read[sid];
   });
 
-  writeFileSync(`./src/assets/achievements/output/text/Text${lang}.json`, JSON.stringify(langData));
+  writeFileSync(`${OUT_PATH}/Text/Text${lang}.json`, JSON.stringify(langData));
 });
