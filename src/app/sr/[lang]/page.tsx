@@ -7,6 +7,12 @@ interface SRLangPageProps {
 
 const supportedLangs = ["EN", "ID"];
 
+export async function generateStaticParams() {
+  return supportedLangs.map((s) => ({
+    lang: s.toLowerCase(),
+  }));
+}
+
 export default function SRLangPage({ params }: SRLangPageProps) {
   if (supportedLangs.includes(params.lang.toUpperCase())) {
     return <SRLangMain langCode={params.lang} />;
