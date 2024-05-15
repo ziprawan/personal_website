@@ -1,4 +1,4 @@
-import AchievementData from "@/assets/hsr/Output/achievements.json";
+import AchievementData from "#hsrOutput/achievements.json";
 import { IAchievementData } from "@/types/achievement/achdata";
 import { ITextMap } from "@/types/textmap/text";
 import { readFileSync } from "fs";
@@ -10,7 +10,9 @@ interface SRAchievementSeriesDetailPageProps {
 
 export default function SRAchievementSeriesDetailMain({ params }: SRAchievementSeriesDetailPageProps) {
   const lang = params.lang.toLowerCase();
-  const textData = JSON.parse(readFileSync(`assets/hsr/Output/Text/Text${lang.toUpperCase()}.json`).toString()) as ITextMap;
+  const textData = JSON.parse(
+    readFileSync(`${process.cwd()}/assets/hsr/Output/Text/Text${lang.toUpperCase()}.json`).toString()
+  ) as ITextMap;
 
   return (
     <div>

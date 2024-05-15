@@ -1,5 +1,5 @@
 // import Series from Output/series.json";
-import Series from "@/assets/hsr/Output/series.json";
+import Series from "#hsrOutput/series.json";
 import { IMultiTextMap, ITextMap } from "@/types/textmap/text";
 import { readFileSync } from "fs";
 import SeriesCard from "./seriesCard";
@@ -11,7 +11,9 @@ const map: IMultiTextMap = {
 
 export default function SRAchievementsMain({ langCode }: { langCode: string }) {
   const lang = langCode.toLowerCase();
-  const textData = JSON.parse(readFileSync(`assets/hsr/Output/Text/Text${lang.toUpperCase()}.json`).toString()) as ITextMap;
+  const textData = JSON.parse(
+    readFileSync(`${process.cwd()}/assets/hsr/Output/Text/Text${lang.toUpperCase()}.json`).toString()
+  ) as ITextMap;
 
   return (
     <div className="flex flex-col gap-3">
