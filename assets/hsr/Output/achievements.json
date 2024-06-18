@@ -780,6 +780,72 @@
     "showType": "ShowAfterFinish",
     "titleHash": 777908808
   },
+  "4033301": {
+    "id": 4033301,
+    "descriptionHash": -1832092997,
+    "hideDescriptionHash": 1103277499,
+    "params": [],
+    "priority": 965,
+    "rarity": "Mid",
+    "seriesId": 3,
+    "showType": "ShowAfterFinish",
+    "titleHash": -929337634
+  },
+  "4033302": {
+    "id": 4033302,
+    "descriptionHash": -1832092998,
+    "hideDescriptionHash": 1103277498,
+    "params": [],
+    "priority": 964,
+    "rarity": "Mid",
+    "seriesId": 3,
+    "showType": "ShowAfterFinish",
+    "titleHash": 1799545721
+  },
+  "4033303": {
+    "id": 4033303,
+    "descriptionHash": -1832092999,
+    "hideDescriptionHash": 1103277497,
+    "params": [],
+    "priority": 963,
+    "rarity": "Mid",
+    "seriesId": 3,
+    "showType": "ShowAfterFinish",
+    "titleHash": 233461780
+  },
+  "4033304": {
+    "id": 4033304,
+    "descriptionHash": -1832093000,
+    "hideDescriptionHash": 1103277504,
+    "params": [],
+    "priority": 962,
+    "rarity": "Mid",
+    "seriesId": 3,
+    "showType": "ShowAfterFinish",
+    "titleHash": -1688852521
+  },
+  "4033305": {
+    "id": 4033305,
+    "descriptionHash": -1832093001,
+    "hideDescriptionHash": 1103277503,
+    "params": [],
+    "priority": 961,
+    "rarity": "Mid",
+    "seriesId": 3,
+    "showType": "HiddenDesc",
+    "titleHash": 1040030834
+  },
+  "4033306": {
+    "id": 4033306,
+    "descriptionHash": -1832093002,
+    "hideDescriptionHash": 1103277502,
+    "params": [],
+    "priority": 960,
+    "rarity": "Mid",
+    "seriesId": 3,
+    "showType": "HiddenDesc",
+    "titleHash": -526053107
+  },
   "4040101": {
     "id": 4040101,
     "descriptionHash": 1158909053,
@@ -1835,6 +1901,28 @@
     "seriesId": 4,
     "showType": null,
     "titleHash": 1232122469
+  },
+  "4043301": {
+    "id": 4043301,
+    "descriptionHash": -1832096394,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 893,
+    "rarity": "Low",
+    "seriesId": 4,
+    "showType": "ShowAfterFinish",
+    "titleHash": 49120077
+  },
+  "4043302": {
+    "id": 4043302,
+    "descriptionHash": -1832096393,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 892,
+    "rarity": "Low",
+    "seriesId": 4,
+    "showType": null,
+    "titleHash": 1615204018
   },
   "4051001": {
     "id": 4051001,
@@ -4553,6 +4641,17 @@
     "showType": "ShowAfterFinish",
     "titleHash": 1587061172
   },
+  "4053205": {
+    "id": 4053205,
+    "descriptionHash": -1832095398,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 717,
+    "rarity": "Mid",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -1141822183
+  },
   "4053206": {
     "id": 4053206,
     "descriptionHash": -1832095397,
@@ -4849,6 +4948,314 @@
     "seriesId": 5,
     "showType": "ShowAfterFinish",
     "titleHash": -1901337067
+  },
+  "4053301": {
+    "id": 4053301,
+    "descriptionHash": -1832095307,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 715,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": null,
+    "titleHash": 686383784
+  },
+  "4053302": {
+    "id": 4053302,
+    "descriptionHash": -1832095304,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 714,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": null,
+    "titleHash": 1089668311
+  },
+  "4053303": {
+    "id": 4053303,
+    "descriptionHash": -1832095305,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 713,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": null,
+    "titleHash": -476415630
+  },
+  "4053304": {
+    "id": 4053304,
+    "descriptionHash": -1832095302,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 712,
+    "rarity": "Mid",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": 283099257
+  },
+  "4053305": {
+    "id": 4053305,
+    "descriptionHash": -1832095303,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 711,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -1282984684
+  },
+  "4053306": {
+    "id": 4053306,
+    "descriptionHash": -1832095300,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 710,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -879700157
+  },
+  "4053307": {
+    "id": 4053307,
+    "descriptionHash": -1832095301,
+    "hideDescriptionHash": 371857150,
+    "params": [30],
+    "priority": 709,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": 1849183198
+  },
+  "4053308": {
+    "id": 4053308,
+    "descriptionHash": -1832095298,
+    "hideDescriptionHash": 371857150,
+    "params": [15],
+    "priority": 708,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -1686269211
+  },
+  "4053309": {
+    "id": 4053309,
+    "descriptionHash": -1832095299,
+    "hideDescriptionHash": 371857150,
+    "params": [300],
+    "priority": 707,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": 1042614144
+  },
+  "4053310": {
+    "id": 4053310,
+    "descriptionHash": 896788049,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 706,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -2042499570
+  },
+  "4053311": {
+    "id": 4053311,
+    "descriptionHash": 896788048,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 705,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": 686383785
+  },
+  "4053312": {
+    "id": 4053312,
+    "descriptionHash": 896788051,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 704,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": 1089668312
+  },
+  "4053313": {
+    "id": 4053313,
+    "descriptionHash": 896788050,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 703,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -476415629
+  },
+  "4053315": {
+    "id": 4053315,
+    "descriptionHash": 896788052,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 701,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -1282984683
+  },
+  "4053316": {
+    "id": 4053316,
+    "descriptionHash": 896788055,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 700,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -879700156
+  },
+  "4053317": {
+    "id": 4053317,
+    "descriptionHash": 896788054,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 699,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": 1849183199
+  },
+  "4053318": {
+    "id": 4053318,
+    "descriptionHash": 896788057,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 698,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -1686269210
+  },
+  "4053319": {
+    "id": 4053319,
+    "descriptionHash": 896788056,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 697,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": 1042614145
+  },
+  "4053320": {
+    "id": 4053320,
+    "descriptionHash": 1300072576,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 696,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -2042499569
+  },
+  "4053321": {
+    "id": 4053321,
+    "descriptionHash": 1300072575,
+    "hideDescriptionHash": 371857150,
+    "params": [10],
+    "priority": 923,
+    "rarity": "Low",
+    "seriesId": 8,
+    "showType": "ShowAfterFinish",
+    "titleHash": 686383786
+  },
+  "4053322": {
+    "id": 4053322,
+    "descriptionHash": 1300072578,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 694,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": 1089668313
+  },
+  "4053323": {
+    "id": 4053323,
+    "descriptionHash": 1300072577,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 693,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -476415628
+  },
+  "4053324": {
+    "id": 4053324,
+    "descriptionHash": 1300072580,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 692,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": 283099259
+  },
+  "4053325": {
+    "id": 4053325,
+    "descriptionHash": 1300072579,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 691,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -1282984682
+  },
+  "4053326": {
+    "id": 4053326,
+    "descriptionHash": 1300072582,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 690,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -879700155
+  },
+  "4053327": {
+    "id": 4053327,
+    "descriptionHash": 1300072581,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 689,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": 1849183200
+  },
+  "4053328": {
+    "id": 4053328,
+    "descriptionHash": 1300072584,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 688,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": -1686269209
+  },
+  "4053329": {
+    "id": 4053329,
+    "descriptionHash": 1300072583,
+    "hideDescriptionHash": 371857150,
+    "params": [],
+    "priority": 687,
+    "rarity": "Low",
+    "seriesId": 5,
+    "showType": "ShowAfterFinish",
+    "titleHash": 1042614146
   },
   "4060101": {
     "id": 4060101,
@@ -6962,6 +7369,72 @@
     "showType": "ShowAfterFinish",
     "titleHash": 262121289
   },
+  "4073301": {
+    "id": 4073301,
+    "descriptionHash": -1832097353,
+    "hideDescriptionHash": 371857150,
+    "params": [1],
+    "priority": 846,
+    "rarity": "Low",
+    "seriesId": 7,
+    "showType": "ShowAfterFinish",
+    "titleHash": 524243314
+  },
+  "4073302": {
+    "id": 4073302,
+    "descriptionHash": -1832097354,
+    "hideDescriptionHash": 371857150,
+    "params": [1],
+    "priority": 845,
+    "rarity": "Low",
+    "seriesId": 7,
+    "showType": "ShowAfterFinish",
+    "titleHash": -1041840627
+  },
+  "4073303": {
+    "id": 4073303,
+    "descriptionHash": -1832097355,
+    "hideDescriptionHash": 371857150,
+    "params": [1],
+    "priority": 844,
+    "rarity": "Low",
+    "seriesId": 7,
+    "showType": "ShowAfterFinish",
+    "titleHash": 1687042728
+  },
+  "4073304": {
+    "id": 4073304,
+    "descriptionHash": -1832097348,
+    "hideDescriptionHash": 371857150,
+    "params": [1],
+    "priority": 843,
+    "rarity": "Low",
+    "seriesId": 7,
+    "showType": "ShowAfterFinish",
+    "titleHash": 120958787
+  },
+  "4073305": {
+    "id": 4073305,
+    "descriptionHash": -1832097349,
+    "hideDescriptionHash": 371857150,
+    "params": [4],
+    "priority": 842,
+    "rarity": "Low",
+    "seriesId": 7,
+    "showType": "ShowAfterFinish",
+    "titleHash": -1445125154
+  },
+  "4073306": {
+    "id": 4073306,
+    "descriptionHash": -1832097350,
+    "hideDescriptionHash": 371857150,
+    "params": [1],
+    "priority": 841,
+    "rarity": "Low",
+    "seriesId": 7,
+    "showType": "ShowAfterFinish",
+    "titleHash": 1283758201
+  },
   "4080101": {
     "id": 4080101,
     "descriptionHash": 1158922121,
@@ -7665,6 +8138,17 @@
     "seriesId": 8,
     "showType": "ShowAfterFinish",
     "titleHash": 1569631446
+  },
+  "4083301": {
+    "id": 4083301,
+    "descriptionHash": -1832083326,
+    "hideDescriptionHash": 371857150,
+    "params": [10],
+    "priority": 922,
+    "rarity": "Low",
+    "seriesId": 8,
+    "showType": "ShowAfterFinish",
+    "titleHash": -16655471
   },
   "4090201": {
     "id": 4090201,
