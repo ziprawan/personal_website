@@ -25,7 +25,7 @@ export default function Navbar() {
   }
 
   function darkModeClass() {
-    return darkMode ? "text-white bg-slate-950 shadow-slate-800" : "text-black bg-white";
+    return darkMode ? "text-slate-100 bg-slate-800 shadow-slate-700" : "text-black bg-white";
   }
 
   return (

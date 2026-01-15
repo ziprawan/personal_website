@@ -5,18 +5,12 @@ import { usePathname } from "next/navigation";
 import { useContext } from "react";
 
 export default function BodyLayout({ children, className }: { children: React.ReactNode; className: string }) {
-  const path = usePathname();
-  const isSR = path.startsWith("/sr");
   const { darkMode } = useContext(DarkModeContext) as DarkModeContextProps;
 
-  const themeClass = darkMode ? "text-white bg-slate-950 shadow-slate-800" : "text-black bg-white";
+  const themeClass = darkMode ? "text-slate-100 bg-slate-800 shadow-slate-700" : "text-black bg-white";
 
-  return isSR ? (
-    <html lang="en">
-      <body className={`transition-all duration-300 bg-[#092635] text-white`}>{children}</body>
-    </html>
-  ) : (
-    <html lang="en">
+  return (
+    <html lang="en" className={darkMode ? "dark" : ""}>
       <body className={`transition-all duration-300 ${className} ${themeClass}`}>
         <div>
           <Navbar />
