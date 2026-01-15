@@ -1,30 +1,25 @@
-@tailwind base;
+@import "tailwindcss";
 
-@layer base {
-  h1 {
-    @apply text-h1;
-  }
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
 
-  h2 {
-    @apply text-h2;
-  }
-
-  h3 {
-    @apply text-h3;
-  }
-
-  h4 {
-    @apply text-h4;
-  }
-
-  h5 {
-    @apply text-h5;
-  }
-
-  h6 {
-    @apply text-h6;
+/* Support both prefers-color-scheme and explicit html.dark class */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
-@tailwind components;
-@tailwind utilities;
+html.dark {
+  --background: #0f1724; /* softer slate dark */
+  --foreground: #e6eef8;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}

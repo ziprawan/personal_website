@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { useState, useContext } from "react";
-import DarkModeContext, { DarkModeContextProps } from "@/context/darkmode/darkmode";
 import ExperienceCard from "@/components/home/ExperienceCard";
 import PhotoCarousel from "@/components/home/PhotoCarousel";
+import Link from "next/link";
+import { useState } from "react";
 
 type Experience = {
   id: string;
@@ -74,7 +72,7 @@ export default function Home() {
           <div className="flex items-center justify-between mb-4">
             <div>
               <h1 className="text-3xl font-semibold leading-tight">Hi, I&apos;m Aziz Ridhwan Pratama</h1>
-              <p className="text-sm text-slate-500 dark:text-slate-200 mt-1">Student - IMT "Signum" ITB</p>
+              <p className="text-sm text-slate-500 dark:text-slate-200 mt-1">Student - IMT &quot;Signum&quot; ITB</p>
             </div>
 
             <div className="flex gap-2 items-center">
@@ -109,13 +107,13 @@ export default function Home() {
             <h2 className="text-xl font-medium">More</h2>
             <div className="mt-2 flex gap-3">
               <Link
-                className="px-4 py-2 rounded-md bg-slate-200 dark:bg-slate-800 hover:scale-105 transition"
+                className="px-4 py-2 rounded-md bg-[color:var(--background)] border border-slate-200 dark:border-slate-700 hover:scale-105 transition"
                 href="/posts"
               >
                 Posts
               </Link>
               <Link
-                className="px-4 py-2 rounded-md bg-slate-200 dark:bg-slate-800 hover:scale-105 transition"
+                className="px-4 py-2 rounded-md bg-[color:var(--background)] border border-slate-200 dark:border-slate-700 hover:scale-105 transition"
                 href="/tools"
               >
                 Tools

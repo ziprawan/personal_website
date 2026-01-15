@@ -50,7 +50,7 @@ export default function PhotoCarousel({ images }: { images: Img[] }) {
         </button>
       </div>
 
-      <div className="mt-2 px-2 py-3 bg-white dark:bg-slate-800 rounded-b-md">
+      <div className="mt-2 px-2 py-3 rounded-b-md bg-[var(--background)]">
         <div className="flex flex-col gap-2 items-center justify-between">
           <div className="flex gap-2">
             {images.map((_, i) => (
@@ -62,7 +62,7 @@ export default function PhotoCarousel({ images }: { images: Img[] }) {
               />
             ))}
           </div>
-          <p className="text-sm text-slate-700 dark:text-slate-200">{images[index].caption}</p>
+          <p className="text-sm text-[color:var(--foreground)]">{images[index].caption}</p>
         </div>
       </div>
     </div>
