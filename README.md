@@ -1,4 +1,8 @@
+# Personal Website
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+Created by Aziz Ridhwan Pratama - 18124029
 
 ## Getting Started
 
