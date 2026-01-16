@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useContext, useState } from "react";
 import DarkModeContext, { DarkModeContextProps } from "@/context/darkmode/darkmode";
 import { HiMoon, HiSun } from "react-icons/hi";
+import { FaHome } from "react-icons/fa";
 
 export default function Navbar() {
   const [count, setCount] = useState(0);
@@ -33,9 +34,11 @@ export default function Navbar() {
       onClick={navbarEasterEgg}
       className={`transition-all z-10 duration-300 py-4 select-none text-3xl font-bold flex fixed w-full justify-between outline ${darkModeClass()}`}
     >
-      <div className="flex">
+      <div className="flex items-center">
         <div className="px-10">
-          <Link href="/">Ziprawan</Link>
+          <Link href="/">
+            <FaHome />
+          </Link>
         </div>
         <div className="px-4">
           <Link href="/posts">Posts</Link>

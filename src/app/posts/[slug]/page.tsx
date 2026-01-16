@@ -1,6 +1,7 @@
 import PostBody from "@/components/post/body";
 import { getPosts } from "@/utils/contentful/client";
 import { notFound } from "next/navigation";
+import React from "react";
 
 export const revalidate = 3600;
 
@@ -13,11 +14,7 @@ export async function generateStaticParams() {
   return slugs;
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
   const post = await getPosts(params.slug);
   if (post.length <= 0) {
     return {
@@ -32,12 +29,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function PostSlug({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const post = await getPosts(params.slug);
+export default async function PostSlug({ params }: { params: { slug: string } }) {
+  const post = await getPosts((await params).slug);
 
   if (post.length <= 0) {
     notFound();
